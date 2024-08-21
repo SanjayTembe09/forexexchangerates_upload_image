@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/screens/image_upload_screen_directory.dart';
+import 'package:myapp/screens/image_text_extraction.dart';
+//import 'package:myapp/screens/image_upload_screen_galary.dart';
 //import 'package:myapp/screens/image_upload_screen_prev.dart';
 
 class AuthForm extends StatefulWidget {
@@ -28,7 +29,7 @@ class _AuthFormState extends State<AuthForm> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ImageUploadScreen(),
+          builder: (context) => ImageTextExtractor(),
         ),
       );
         print('Login with email: ${_emailController.text} and password: ${_passwordController.text}');
