@@ -59,7 +59,35 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
             ),
             // Display uploaded image (optional)
             if (_imageUrl != null)
-              Image.network(_imageUrl!),
+              //Image.network(_imageUrl!),
+              Image.network(
+                  _imageUrl!,
+                  width: 300,
+                  height: 200,
+                  errorBuilder: (context, error, stackTrace) {
+                  /*if (error is ImageCodecException) {
+                    // Handle image decoding errors
+                    return const Center(
+                      child: Text('Error decoding image'),
+                    );
+                  } else*/ if (error is HttpException) {
+                    // Handle network-related errors
+                    return const Center(
+                      child: Text('Network error'),
+                    );
+                  } else if (error is FormatException) {
+                    // Handle image format errors
+                    return const Center(
+                      child: Text('Invalid image format'),
+                    );
+                  } else {
+                    // Handle other errors
+                    return const Center(
+                      child: Text(''),
+                    );
+                  }
+                },
+              )
           ],
         ),
       ),
